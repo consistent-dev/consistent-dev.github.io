@@ -1,7 +1,7 @@
 ---
 title: "파일 데이터베이스 - InputStream 이해하기"
 excerpt: "file-database"
-date: 2022-02-03
+date: 2022-02-05
 categories:
     - java
 tags:
@@ -13,7 +13,7 @@ tags:
 
 본 포스팅에서 다루는 모든 코드는 [깃허브 링크][1]에서 확인 가능합니다.
 
-# 개념부터 보겠습니다.
+# 개념부터 보겠습니다
 
 파일 IO의 개념을 처음 접하면 굉장히 혼란스럽습니다. 여러 클래스들이 어떤 구조를 이루고 있는지, 어떤 것을 사용해야하는지 이해하기 참 어렵습니다.
 하지만 알고보면 알아야할 개념이 많지 않습니다.  
@@ -68,7 +68,7 @@ DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(new FileOut
 
 아직 감이 잘 안올거에요. 바로 동작하는 코드로 보면 좀 더 쉬워집니다.
 
-# 코드로 보겠습니다. 
+# 코드로 보겠습니다
 
 [깃허브 링크의 tutorial package][2] 하위에 있는 클래스 별로 하나씩 설명하겠습니다.  
 
