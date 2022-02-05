@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://consistent-dev.github.io/sitemap.xml
