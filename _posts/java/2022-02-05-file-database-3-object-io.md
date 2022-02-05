@@ -126,6 +126,49 @@ public class LoggingPack extends AbstractPack {
     }
 ```
 
+## 테스트
+
+```java
+public static void main(String[] args) {
+    LoggingDB loggingDB = LoggingDB.getInstance();
+    try(DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(loggingDB.getRoot())));
+        DataInputStream dis = new DataInputStream(new BufferedInputStream(new FileInputStream(loggingDB.getRoot())));
+    ){
+        DataOutputX dout = new DataOutputX(dos);
+        DataInputX din = new DataInputX(dis);
+        for(int i=0; i< 10; i++){
+            LoggingPack p = new LoggingPack(DateUtil.now(), i, "testCategory" + i, 100 + i,"testContent");
+            p.addTag("testKey", "testValue");
+            if(i %2 == 0){
+                p.addField("testFieldKey", "testFieldValue");
+            }
+            p.write(dout).flush();
+        }
+
+        for(int i=0; i< 10; i++) {
+            LoggingPack readPack = (LoggingPack) new LoggingPack().read(din);
+            System.out.println(readPack);
+        }
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+}
+```
+
+```java
+// 실행 결과
+time=1644032977125, pcode=0, category=testContent, line=100, content=null, tags={testKey=testValue}, fields={testFieldKey=testFieldValue}
+time=1644032977126, pcode=1, category=testContent, line=101, content=null, tags={testKey=testValue}
+time=1644032977126, pcode=2, category=testContent, line=102, content=null, tags={testKey=testValue}, fields={testFieldKey=testFieldValue}
+time=1644032977126, pcode=3, category=testContent, line=103, content=null, tags={testKey=testValue}
+time=1644032977126, pcode=4, category=testContent, line=104, content=null, tags={testKey=testValue}, fields={testFieldKey=testFieldValue}
+time=1644032977126, pcode=5, category=testContent, line=105, content=null, tags={testKey=testValue}
+time=1644032977126, pcode=6, category=testContent, line=106, content=null, tags={testKey=testValue}, fields={testFieldKey=testFieldValue}
+time=1644032977127, pcode=7, category=testContent, line=107, content=null, tags={testKey=testValue}
+time=1644032977127, pcode=8, category=testContent, line=108, content=null, tags={testKey=testValue}, fields={testFieldKey=testFieldValue}
+time=1644032977127, pcode=9, category=testContent, line=109, content=null, tags={testKey=testValue}
+```
+
 # 마치며
 
 메모리에 있는 객체의 필드를 하나씩 바이트 순서에 맞추어서 저장하고 읽는 과정을 크게 어렵지 않습니다. Util을 잘 만들어두고 사용하면 되니까요.
