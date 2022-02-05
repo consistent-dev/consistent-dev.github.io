@@ -4,8 +4,10 @@ excerpt: "file-database"
 date: 2022-02-05
 categories:
     - java
+    - file-database
 tags:
     - java
+    - file-database
     - IO
 ---
 
@@ -26,8 +28,7 @@ public class DataInputStream extends FilterInputStream implements DataInput {...
 ```
 
 ```java
-public
-class DataOutputStream extends FilterOutputStream implements DataOutput { ... }
+public class DataOutputStream extends FilterOutputStream implements DataOutput { ... }
 ```
 
 ```java
@@ -159,17 +160,17 @@ outter.writeShort()메소드가 있기는 하지만, 바이트 연산에 익숙�
 
 shift 연산에는 크게 3가지 종류가 있습니다.  
 
-- << : 제일 오른쪽 공간의 값 = 0
+- \<\< : 제일 오른쪽 공간의 값 = 0
 - \>\> : 제일 왼쪽 공간의 값 = 양수 ? 1 : 0
 - \>\>\> : 제일 왼쪽 공간의 값 = 0
 
 16진수 0xFF는 1바이트 1111 1111을 의미합니다. (& 0xFF)는 해당 바이트만 추출한다는 뜻입니다.
 
 - v                  = 0000 0000 0011 1100
-- v >>> 8            = 0000 0000 0000 0011
+- v \>\>\> 8            = 0000 0000 0000 0011
 - 0xFF               = 0000 0000 0000 1111
-- ((v >>> 8) & 0xFF) = 0000 0000 0000 0011
-- ((v >>> 0) & 0xFF) = 0000 0000 0000 1100
+- ((v \>\>\> 8) & 0xFF) = 0000 0000 0000 0011
+- ((v \>\>\> 0) & 0xFF) = 0000 0000 0000 1100
 
 ```java
 public DataOutputX writeShort(int v) {

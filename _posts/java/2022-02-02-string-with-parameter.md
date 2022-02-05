@@ -4,8 +4,10 @@ excerpt: "string-with-parameter"
 date: 2022-02-02
 categories:
   - java
+  - string-with-parameter
 tags:
   - java
+  - string-with-parameter
 ---
 
 # 실행 가능한 예제

@@ -4,8 +4,10 @@ excerpt: "file-database"
 date: 2022-02-05
 categories:
     - java
+    - file-database
 tags:
     - java
+    - file-database
     - IO
 ---
 

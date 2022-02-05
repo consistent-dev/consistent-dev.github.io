@@ -4,8 +4,10 @@ excerpt: "runtime-configuration"
 date: 2022-02-02
 categories:
   - java
+  - runtime-configuration
 tags:
   - java
+  - runtime-configuration
 ---
 
 # 실행 가능한 예제
